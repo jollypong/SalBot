@@ -5,3 +5,105 @@ body {
     min-height: 100vh; 
     background-color: aqua
 }
+/* chat box style */
+#chatContainer { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+#chatBox{ 
+    width: 400px; 
+    height: 500px; 
+    background-color: #fff;
+    overflow: hidden; 
+    border-radius: 10px; 
+    position: relative; 
+}
+
+/* About Salbot */
+#salbotProfile{ 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 80px;
+    background-color: #77b3d4; 
+    width: 80px; 
+    padding: 15px; 
+}
+
+#salbotIcon{ 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+}
+
+#salbotInfo { 
+    color: #fff; 
+    padding: 15px; 
+}
+
+#salbotInfo p { 
+    color: salmon; 
+    font-weight: bold; 
+    font-size: 0.8em; 
+}
+
+#salbotChatContent{ 
+    width: 60%; 
+    word-wrap: break-word; 
+    background-color: salmon; 
+    padding: 7px 10px; 
+    border-radius: 10px 10px 10px 0;
+    margin: 10px 0;
+}
+
+#userChatContent{ 
+    width: 60%;
+    word-wrap: break-word; 
+    background-color: teal; 
+    padding: 7px 10px; 
+    border-radius: 10px 10px 0 10px; 
+    margin: 5px 0 5px auto; 
+}
+#chatInput{ 
+    display: flex; 
+    align-items: center; 
+    width: 100%;
+    height: 65px; 
+    background-color: #fff;
+    padding: 15px; 
+    overflow: hidden; 
+    position: absolute; 
+    bottom: 0; 
+}
+
+#chatInput input{ 
+    width: calc(100%-40px); 
+    height: 100%; 
+    background-color: #4f5d73;
+    border-radius: 50px; 
+    color: black;
+    font-size: 1.2em; 
+    padding: 0 15px;  
+}
+
+#sendButton { 
+    width: 40px; 
+    height: 40px; 
+    background-color: transparent; 
+    overflow: hidden;
+    position: relative;
+    margin-left: 5px; 
+    cursor: pointer; 
+    transition: 0.4s ease-in-out; 
+}
+
+#sendButton:active { 
+    transform: scale(0.85)
+}
+
+#sendButton i { 
+    width: 100%;
+    height: 100%; 
+}

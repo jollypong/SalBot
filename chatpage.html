@@ -4,31 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style src= "assets/stylesheets/chatpage.css"></style>
+    <link rel="stylesheet" href="./assets/stylesheets/chatpage.css" />
     <title>SALBOT Chat AI Tool</title>
 </head>
 
 <body>
-    <div id="chatContainer" class = "card"> 
+    <div id="chatContainer" class = "card bg-info"> 
         <!-- chatbox -->
-        <div id="salbotProflie" class = "card-header">
+        <div id="salbotProflie" class = "card-header bg-info">
             <!-- Salbot profile up top of chatbox-->
             <img id= "salbotIcon" src="assets/images/salbot white bg.png" alt = "Salbot mascot"/>
             <div id= "salbotInfo">
                 <h2>Salbot</h2>
                 <p>online</p>
             </div>
-        </div> 
         <!-- Main chat section-->
-        <div id = "chat" class ="card-body">
+        <div id = "chatBox" class ="card-body bg-light">
             <div id = "userChatContent" class = "">HELLO</div>
             <div id = "salbotChatContent" class = "">HELLO</div>
-        </div>
         <!--input field section-->
-        <div class = "chat-input"
-            <input type="text" placeholder="Enter Message"
-            />
-            <button id = "chatBtn" class = "card-body"><i class="fas fa-paper-plane"></i></button>
+        <div id = "chatInput" class = "card-footer bg-light">
+            <input type="text" placeholder="Enter Message"/>
+            <button id = "chatBtn" class = "card-body">
+                <i id = sendButton class="fas fa-paper-plane"></i>
+            </button>
         </div>
     </div>
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
