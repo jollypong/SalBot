@@ -16,7 +16,7 @@
         <!-- chatbox -->
         <div id = "chatBox" class ="card">
             <!-- Salbot profile up top of chatbox-->
-            <div id="salbot" class = "bg-info">
+            <div id="salbot" class ="">
                 <img id= "salbotIcon" class = "card-header" src="assets/images/salbot white bg.png" alt = "Salbot mascot"/>
                 <div id= "salbotInfo" class = "column">
                     <h2>Salbot</h2>
@@ -24,12 +24,14 @@
                 </div>
             </div>  
         <!-- Main chat section-->
-        <div id = "messages" class ="card-body bg-light">
+        <div id = "messages" class ="card-body">
+            <!-- Empty Div for messages -->
+        </div>
         <!--input field section-->
-        <div id = "chatInputContainer" class = "card-footer bg-light">
-            <input id = "chatInput" type="text" placeholder="  Enter Message"/>
+        <div id = "chatInputContainer" class = "card-footer">
+            <input id = "chatInput" type="text" placeholder="Enter Message"/>
             <button id = "chatBtn" class = "card-body">
-                <i id = sendButton class="fas fa-paper-plane"></i>
+                <i id = "sendButton" class = "fas fa-paper-plane"></i>
             </button>
         </div>
     </div>
