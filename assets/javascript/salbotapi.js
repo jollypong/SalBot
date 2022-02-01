@@ -20,7 +20,7 @@ let requestChatResponse = (prompt, conversationHistory) => {
         body: JSON.stringify({
             prompt: prompt + conversationHistory,
             numResults: 1,
-            maxTokens: 40,
+            maxTokens: 100,
             stopSequences: [`"`],
             topKReturn: 0,
             temperature: 0.7
@@ -31,7 +31,7 @@ let requestChatResponse = (prompt, conversationHistory) => {
         .then(aiResponse => {
             console.log(aiResponse);
             $('#chatBox').append(`<div class="salbotChatContent">${aiResponse.completions[0].data.text}</div>`);
-            conversationHistory[conversationHistory.length -1] += ` ${aiResponse.completions[0].data.text}`;
+            conversationHistory[conversationHistory.length -1] += ` ${aiResponse.completions[0].data.text}"`;
             
         })
 }
