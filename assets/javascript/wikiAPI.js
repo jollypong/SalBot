@@ -1,29 +1,47 @@
-function fetchWiki() {
-    const wiki = "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=Craig%20Noone";
-    const wikiURL = "https://www.mediawiki.org/w/api.php"
-    const wikiParams = `?action=query`
-    +`&prop=extracts`   //an 'extract' is the type of property being requested
-    +`&exsentences=2`   //request the first 2 sentences from the wikipedia page
-    +`&exlimit=1`   //..
-    + `&list=search`
-	+ `&srsearch=Java`
-    //+`&titles=` + ``    //tells the link which specific wikipedia page to get an extract from(changes based on the 'ele' param)
-    //+`&explaintext=1`   //tells the API to provide the content in plain text(instead of html code or other formats that can't be read by text-to-speak)
-    +`&format=json` //requests the data in JSON format
-    +`&formatversion=2` //makes the JSOn properties easier to navigate using dot notation
-    +`&origin=*`;   //omitting this param causes a CORS error
+let buttonEl = document.querySelector("#search");
+let inputEl = document.querySelector("#input");
 
-    const wikiLink = wikiURL + wikiParams;
+function searchUp(s) {
+    let ids ="";
+    let links = [];
+    let results = [];
     
-
-    $.ajax({
-        url: wikiLink,
-        method: "GET"
-    }).then(function(wikiResponse) {
-        console.log("wiki response");
-        console.log(wiki);
-        console.log(wikiResponse);
-    }) 
+    fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srsearch=${s}`)
+    .then(function(response) {
+        return response.json();
+    }).then(function(result) {
+        // console.log(result);
+        results = result.query.search;
+        for(let i=0; i<results.length; i++) {
+            if(results[i+1] != null) {
+                ids += results[i].pageid + "|";
+            } else {
+                ids += results[i].pageid;
+            }
+        }
+    }).then(function(a) {
+        fetch(`https://en.wikipedia.org/w/api.php?action=query&prop=info&inprop=url&origin=*&format=json&pageids=${ids}`)
+        .then(function(idresult) {
+            return idresult.json();
+        }).then(function(idresult) {
+            console.log(idresult.query.pages);
+            for(i in idresult.query.pages) {
+                links.push(idresult.query.pages[i].fullurl)
+            }
+            console.log(links);
+            console.log(results);
+        }).then(function(g) {
+            document.getElementById("output").innerHTML = "";
+            for(let i=0; i<results.length; i++) {
+                document.getElementById("output").innerHTML += 
+                "<a href=`"+links[i]+"` target='_blank'>" + results[i].title + "</a><br>" + results[i].snippet+ "<br>";
+            }
+        })
+    })
 }
 
-fetchWiki();
+// buttonEl.addEventListener("click",searchUp(inputEl.val()));
+$("#search").on("click", function(){
+    let value = $("#input").val();
+    searchUp(value);
+})
