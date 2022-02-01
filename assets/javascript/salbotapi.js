@@ -30,7 +30,7 @@ let requestChatResponse = (prompt, conversationHistory) => {
         .then(response => response.json())
         .then(aiResponse => {
             console.log(aiResponse);
-            $('#chatBox').append(`<div class="salbotChatContent">${aiResponse.completions[0].data.text}</div>`);
+            $('#message').append(`<div class="salbotChatContent">${aiResponse.completions[0].data.text}</div>`);
             conversationHistory[conversationHistory.length -1] += ` ${aiResponse.completions[0].data.text}"`;
             
         })
@@ -39,7 +39,7 @@ let requestChatResponse = (prompt, conversationHistory) => {
 $('#chatBtn').on('click', () => {
     let chatInput = $('#chatinput > button').val();
     conversationHistory.push(`\nYou: "${$('#chatInput').val()}"`);
-    $('#chatBox').append(`<div class="userChatContent">${conversationHistory[conversationHistory.length -1]}</div>`);
+    $('#message').append(`<div class="userChatContent">${conversationHistory[conversationHistory.length -1]}</div>`);
     $('#chatInput').val('');
     conversationHistory.push(`\nSalbot: "`);
     console.log(conversationHistory);
@@ -53,9 +53,9 @@ let initSalbot = () => {
         // if index char  is s or S
         if(conversationHistory[index].charAt(1) === 's' || conversationHistory[index].charAt(1) === 'S') {
          
-            $('#chatBox').append(`<div class="salbotChatContent">${conversationHistory[index]}</div>`);
+            $('#message').append(`<div class="salbotChatContent">${conversationHistory[index]}</div>`);
         } else {
-            $('#chatBox').append(`<div class="userChatContent">${conversationHistory[index]}</div>`);
+            $('#message').append(`<div class="userChatContent">${conversationHistory[index]}</div>`);
         }
     }
 }
