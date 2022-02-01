@@ -87,7 +87,7 @@ body {
     margin: 5px 0 5px auto; 
 }
 
-#chatInput{ 
+#chatInputContainer{ 
     display: flex; 
     align-items: center; 
     width: 100%;
