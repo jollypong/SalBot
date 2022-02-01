@@ -10,9 +10,9 @@ let conversationHistory = localStorage.getItem('conversationHistory') ||
     [`\nSalbot: "Hey, I heard you were struggling with javascript in class today. Did you have any questions?"`];
 
 
-
+//after v1/ add j1-large or j1-jumbo. jumbo is more accurate and should be used for presentation
 let requestChatResponse = (prompt, conversationHistory) => {
-    fetch("https://api.ai21.com/studio/v1/j1-jumbo/complete", {
+    fetch("https://api.ai21.com/studio/v1/j1-large/complete", {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer Bu8F3MpNFHWo3rug7xDI8laDnR7CjGzT'
