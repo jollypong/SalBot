@@ -1,3 +1,12 @@
+*{ 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    outline: none; 
+    border: none;
+}
+
 body { 
     display: flex; 
     justify-content: center; 
@@ -6,39 +15,37 @@ body {
     background-color: aqua
 }
 /* chat box style */
-#chatContainer { 
+#Container { 
     display: flex; 
     justify-content: center; 
     align-items: center; 
 }
 
 #chatBox{ 
-    width: 400px; 
-    height: 500px; 
-    background-color: #fff;
+    width: 900px; 
+    height: 600px; 
     overflow: hidden; 
     border-radius: 10px; 
     position: relative; 
 }
 
 /* About Salbot */
-#salbotProfile{ 
+#salbot{ 
     display: flex; 
-    justify-content: center; 
+    justify-content: start;
     align-items: center; 
-    height: 80px;
+    height: 100px; 
     background-color: #77b3d4; 
-    width: 80px; 
     padding: 15px; 
 }
 
 #salbotIcon{ 
-    width: 50px; 
-    height: 50px; 
+    width: 90px; 
+    height: 80px; 
     border-radius: 50%;
 }
 
-#salbotInfo { 
+#salbotInfo{ 
     color: #fff; 
     padding: 15px; 
 }
@@ -47,6 +54,10 @@ body {
     color: salmon; 
     font-weight: bold; 
     font-size: 0.8em; 
+}
+
+#messages{ 
+    overflow-y: auto;
 }
 
 #salbotIntro{ 
@@ -58,7 +69,7 @@ body {
     margin: 10px 0;
 }
 
-#salbotChatContent{ 
+.salbotChatContent{ 
     width: 60%; 
     word-wrap: break-word; 
     background-color: salmon; 
@@ -67,7 +78,7 @@ body {
     margin: 10px 0;
 }
 
-#userChatContent{ 
+.userChatContent{ 
     width: 60%;
     word-wrap: break-word; 
     background-color: teal; 
@@ -85,36 +96,47 @@ body {
     padding: 15px; 
     overflow: hidden; 
     position: absolute; 
-    bottom: 0; 
+    bottom: 0;  
 }
 
 #chatInput input{ 
-    width: calc(100%-40px); 
+    width: calc(100% - 40px); 
     height: 100%; 
     background-color: #4f5d73;
     border-radius: 50px; 
     color: black;
     font-size: 1.2em; 
-    padding: 0 15px;  
+    padding: 0 15px;
+    margin-right: 10px;
 }
 
 #sendButton { 
-    width: 40px; 
-    height: 40px; 
+    width: 30px;
+    height: 30px; 
     background-color: transparent; 
     overflow: hidden;
-    position: relative;
-    margin-left: 5px; 
+    position: relative; 
     cursor: pointer; 
     transition: 0.4s ease-in-out; 
 }
+#chatBtn:hover{ 
+    background-color: salmon;
+    padding: -10px;
+}
 
 #sendButton:active { 
-    transform: scale(0.85)
+    transform: scale(0.50); 
+    transition-duration: 200ms; 
+    /* please add to the js following to tie enter key to send button: 
+    $(document).keypress(function(e){
+    if (e.which == 13){
+        $("#sendButton").click();
+    }
+    });
+    */
 }
 
 #sendButton i { 
     width: 100%;
     height: 100%; 
-
 }
