@@ -40,8 +40,9 @@ function searchUp(s) {
     })
 }
 
-// buttonEl.addEventListener("click",searchUp(inputEl.val()));
+
 $("#search").on("click", function(){
     let value = $("#input").val();
-    searchUp(value);
+    searchUp(value)
+    // searchUp(value);
 })
