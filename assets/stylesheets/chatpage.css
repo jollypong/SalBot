@@ -8,13 +8,13 @@
 }
 
 :root { 
-    --babyblue: #E7F2F8;
+    --light: #E7F2F8;
     --aquamarine: #74BDCB;
     --salmon: #ffa384;
     --freesia: #EFE7BC;
-    --light: #fff;
     --dark: #543855;
     --online: #FF8882;
+    --bluegray: #658EA9;
 }
 
 body { 
@@ -22,7 +22,7 @@ body {
     justify-content: center; 
     align-items: center;
     min-height: 100vh; 
-    background-color: var(--aquamarine);
+    background-color: var(--bluegray);
 }
 /* chat box style */
 #Container { 
@@ -45,7 +45,7 @@ body {
     justify-content: start;
     align-items: center; 
     height: 100px; 
-    background-color: var(--babyblue); 
+    background-color: var(--aquamarine); 
     padding: 0 0 0 15px; 
 }
 
@@ -73,7 +73,7 @@ body {
 
 #messages{ 
     overflow-y: auto;
-    background-color: var(--freesia);
+    background-color: var(--light);
 }
 
 .salbotChatContent{ 
@@ -102,8 +102,8 @@ body {
     padding: 15px; 
     overflow: hidden; 
     position: absolute; 
-    bottom: 0;  
-    background-color: var(--light);
+    bottom: 0; 
+    background-color: var(--freesia);
 }
 
 #chatInputContainer input{ 
