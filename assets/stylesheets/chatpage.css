@@ -1,3 +1,12 @@
+*{ 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    outline: none; 
+    border: none;
+}
+
 body { 
     display: flex; 
     justify-content: center; 
@@ -13,8 +22,8 @@ body {
 }
 
 #chatBox{ 
-    width: 400px; 
-    height: 500px; 
+    width: 900px; 
+    height: 600px; 
     background-color: #fff;
     overflow: hidden; 
     border-radius: 10px; 
@@ -24,17 +33,16 @@ body {
 /* About Salbot */
 #salbotProfile{ 
     display: flex; 
-    justify-content: center; 
+    justify-content: start;
     align-items: center; 
-    height: 80px;
+    height: 80px; 
     background-color: #77b3d4; 
-    width: 80px; 
     padding: 15px; 
 }
 
 #salbotIcon{ 
-    width: 50px; 
-    height: 50px; 
+    width: 80px; 
+    height: 80px; 
     border-radius: 50%;
 }
 
@@ -95,7 +103,8 @@ body {
     border-radius: 50px; 
     color: black;
     font-size: 1.2em; 
-    padding: 0 15px;  
+    padding: 10px 15px;
+    margin-left: 10px  
 }
 
 #sendButton { 
@@ -104,7 +113,7 @@ body {
     background-color: transparent; 
     overflow: hidden;
     position: relative;
-    margin-left: 5px; 
+    margin-left: 10px; 
     cursor: pointer; 
     transition: 0.4s ease-in-out; 
 }
@@ -116,5 +125,4 @@ body {
 #sendButton i { 
     width: 100%;
     height: 100%; 
-
 }

@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+    crossorigin="anonymous" />
     <link rel="stylesheet" href="./assets/stylesheets/chatpage.css" />
     <title>SALBOT Chat AI Tool</title>
 </head>
 
 <body>
-    <div id="chatContainer" class = "card bg-info"> 
+    <div id="chatContainer" class = "card bg-secondary"> 
         <!-- chatbox -->
         <div id="salbotProflie" class = "card-header bg-info">
             <!-- Salbot profile up top of chatbox-->
-            <img id= "salbotIcon" src="assets/images/salbot white bg.png" alt = "Salbot mascot"/>
-            <div id= "salbotInfo">
+            <img id= "salbotIcon" class = "" src="assets/images/salbot white bg.png" alt = "Salbot mascot"/>
+            <div id= "salbotInfo" class = "">
                 <h2>Salbot</h2>
                 <p>online</p>
-            </div>
+            </div>  
         <!-- Main chat section-->
         <div id = "chatBox" class ="card-body bg-light">
-            <div id = "salbotIntro" class = "">My name is Salbot</div>
+            <div id = "salbotIntro" class = "">Salbot is your tutor. He has knowledge of javascript, html, css and can answer your questions in a clear and concise manner.</div>
             <div id = "userChatContent" class = "">HELLO</div>
-            <div id = "salbotChatContent" class = "">HELLO</div>
+            <div id = "salbotChatContent" class = "">HELLO</div>   
         <!--input field section-->
         <div id = "chatInput" class = "card-footer bg-light">
-            <input type="text" placeholder="Enter Message"/>
+            <input type="text" placeholder="  Enter Message"/>
             <button id = "chatBtn" class = "card-body">
                 <i id = sendButton class="fas fa-paper-plane"></i>
             </button>
@@ -36,6 +39,5 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src ="./assets/script/script.js"></script>
 </body>
 </html>
