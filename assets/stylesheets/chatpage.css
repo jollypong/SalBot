@@ -70,6 +70,7 @@ body {
     padding-left: 6px; 
     background-color: var(--online);
     border-radius: 50px; 
+    margin-left: -3px; 
 }
 
 #messages{ 
@@ -149,10 +150,9 @@ body {
 
 @media screen and (max-width: 600px) {
     body { 
+        min-height: 100%; 
         height: 100%;
-        width: 90vh;
-        margin-top: 5px; 
-        margin-bottom: 5px; 
+        padding: 5px; 
     };
     #chatInputContainer{ 
         width: auto;
