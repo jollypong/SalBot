@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <section id="Container">
+    <section id="Container" class = "">
         <!-- chatbox -->
         <div id = "chatBox" class ="card">
             <!-- Salbot profile up top of chatbox-->
@@ -20,19 +20,20 @@
                     <h2>Salbot</h2>
                     <p>online</p>
                 </div>
-            </div>  
-        <!-- Main chat section-->
-        <div id = "messages" class ="card-content">
+            </div>     
+            <!-- Main chat section-->
+            <div id = "messages" class ="card-content">
             <!-- Empty Div for messages -->
+            </div>
+            <!--input field section-->
+            <div id = "chatInputContainer" class = "card-footer">
+                <input id = "chatInput"" type="text" placeholder="Enter Message"/>
+                <button id = "chatBtn" class = "card-body">
+                    <i id = "sendButton" class = "fas fa-paper-plane"></i>
+                </button>
+            <div>
         </div>
-        <!--input field section-->
-        <div id = "chatInputContainer" class = "card-footer">
-            <input id = "chatInput"" type="text" placeholder="Enter Message"/>
-            <button id = "chatBtn" class = "card-body">
-                <i id = "sendButton" class = "fas fa-paper-plane"></i>
-            </button>
-        </div>
-    </div>
+    </section>
     
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

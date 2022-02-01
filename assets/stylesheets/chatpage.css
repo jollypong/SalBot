@@ -32,11 +32,12 @@ body {
 }
 
 #chatBox{ 
-    width: 900px; 
-    height: 600px; 
+    width: auto;
+    height: 95vh; 
     overflow: hidden; 
     border-radius: 10px; 
     position: relative; 
+    margin: 5px; 
 }
 
 /* About Salbot */
@@ -108,7 +109,7 @@ body {
 }
 
 #chatInputContainer input{ 
-    width: calc(100% - 40px); 
+    width: 100%;
     height: 100%; 
     background-color: var(--dark);
     border-radius: 50px; 
@@ -119,7 +120,7 @@ body {
 }
 
 #chatBtn{ 
-    width: 100px; 
+    width: 100px;
     border-radius: 50px;
     background-color: var(--salmon);
     padding: 5px;
@@ -146,4 +147,14 @@ body {
     transition-duration: 200ms; 
 }
 
-
+@media screen and (max-width: 600px) {
+    body { 
+        height: 100%;
+        width: 90vh;
+        margin-top: 5px; 
+        margin-bottom: 5px; 
+    };
+    #chatInputContainer{ 
+        width: auto;
+    }
+}
