@@ -83,7 +83,7 @@ section .container-fluid h2{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
-section .container-fluid p{
+section .container-fluid h4{
     color:whitesmoke;
     font-size: 1rem;
     margin-right: 65px;
@@ -260,7 +260,6 @@ section .imagebox image{
         width: 50%;
         height: 50%;
     } */
-
 }
 
 
