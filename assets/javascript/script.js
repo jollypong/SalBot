@@ -39,12 +39,13 @@ function searchUp(s) {
 $("#searchButton").on("click", function(){
     let value = $("#input").val();
     let result = searchUp(value);
+    $( "#output" ).dialog( "open" );
     console.log(result);
 })
 
 $( "#output" ).dialog({ autoOpen: false });
 
-$("#searchButton").click(function() {
-    $( "#output" ).dialog( "open" );
-});
+// $("#searchButton").click(function() {
+//     $( "#output" ).dialog( "open" );
+// });
 
