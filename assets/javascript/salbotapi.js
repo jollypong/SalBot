@@ -37,7 +37,9 @@ let requestChatResponse = (prompt, conversationHistory) => {
         })
 }
 
-$('#chatBtn').on('click', () => {
+$('#chatBtn').on('click', (e) => {
+    e.preventDefault();
+    console.log('test')
     let chatInput = $('#chatinput > button').val();
     conversationHistory.push(`\nYou: "${$('#chatInput').val()}"`);
     $('#messages').append(`<div class="userChatContent">${conversationHistory[conversationHistory.length - 1]}</div>`);

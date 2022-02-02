@@ -43,9 +43,7 @@ async function searchUp(textblock) {
 }
 
 
-$("#searchButton").on("click", function(){
-    let value = $("#input").val();
-    searchUp(value);
-})
-
-$( "#output" ).dialog({ autoOpen: false });
+$("#searchButton").click(function(e) {
+    e.preventDefault();
+    $(".modal").addClass("is-active");  
+});
