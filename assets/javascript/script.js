@@ -36,13 +36,16 @@ function searchUp(s) {
     })
 }
 
-$("#search").on("click", function(){
+$("#searchButton").on("click", function(){
     let value = $("#input").val();
-    searchUp(value);
+    let result = searchUp(value);
+    $( "#output" ).dialog( "open" );
+    console.log(result);
 })
 
 $( "#output" ).dialog({ autoOpen: false });
 
-$( "#search" ).click(function() {
-  $( "#output" ).dialog( "open" );
-});
+// $("#searchButton").click(function() {
+//     $( "#output" ).dialog( "open" );
+// });
+
