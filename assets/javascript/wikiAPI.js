@@ -5,7 +5,8 @@ async function searchUp(textblock) {
     let ids = "";
     let links = [];
     let results = [];
-    $("#output").dialog( "open" );
+    // $("#output").dialog( "open" );
+    // $("#myModal").modal();
     const value = await generateSearchTerm(textblock);
 
     fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srsearch=${value}`)
@@ -29,14 +30,13 @@ async function searchUp(textblock) {
                     for (i in idresult.query.pages) {
                         links.push(idresult.query.pages[i].fullurl)
                     }
-                    // console.log(links);
-                    // console.log(results);
                 }).then(function (g) {
-                    document.getElementById("output").innerHTML = "";
+                    document.getElementsByClassName("modal-body").innerHTML = "";
                     for (let i = 0; i < results.length; i++) {
-                        document.getElementById("output").innerHTML +=
+                        document.getElementsByClassName("modal-body").innerHTML +=
                             "<a href=`" + links[i] + "` target='_blank'>" + results[i].title + "</a><br>" + results[i].snippet + "<br>";
                     }
+                    
                 })
         })
 }
@@ -44,25 +44,18 @@ async function searchUp(textblock) {
 
 console.log($("#messages").children("div"));
 
-$( "#output" ).dialog({ autoOpen: false });
+//  $( "#output" ).dialog({ autoOpen: true});
 
 $("#chatBtn").on("click", async function () {
     await new Promise((resolve) =>
         setTimeout(resolve, 2000))
         $("#messages").children().on("click", function () {
             let textContent = $(this).text();
-            console.log(textContent);
             searchUp(textContent);
+            
         })
 })
 
-// $("#searchButton").on("click", function(){
-//     let value = $("#input").val();
-//     let result = searchUp(value);
-//     console.log(result);
-// })
-
-// $("#searchButton").click(function() {
-//     $( "#output" ).dialog( "open" );
-// });
-    
+// $(document).ready(function(){
+//     $("#myModal").modal();
+//  });
