@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/stylesheets/chatpage.css" />
 
+
     <title>SALBOT Chat AI Tool</title>
 </head>
 
@@ -28,6 +29,10 @@
                     <h2>Salbot</h2>
                     <p>online</p>
                 </div>
+                <input id="input" placeholder="Wikipedia Search!"/>
+                <button type="button" id="searchButton" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                    <i class="fas fa-search"></i>
+                </button>
             </div>
             <!-- Main chat section-->
             <div id="messages" class="card-content">
@@ -44,17 +49,14 @@
     </section>
 
 
-    <input id="input" />
-    <button type="button" id="searchButton" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-        Search it!
-    </button>
+ 
 
     <div class="modal" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Searching Result</h5>
+                    <h2 class="modal-title" id="exampleModalLongTitle">Searching Result</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

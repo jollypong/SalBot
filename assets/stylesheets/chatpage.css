@@ -47,7 +47,7 @@ body {
     align-items: center; 
     height: 100px; 
     background-color: var(--aquamarine); 
-    padding: 0 0 0 15px; 
+    padding: 0 15px 0 15px; 
 }
 
 #salbotIcon{ 
@@ -71,6 +71,17 @@ body {
     background-color: var(--online);
     border-radius: 50px; 
     margin-left: -3px; 
+    margin-top: 3px;
+}
+
+#searchButton {
+    border-radius : 0 20px 20px 0;
+}
+
+#input {
+    height: 34px;
+    border-radius: 20px 0 0 20px;
+    text-indent: 20px; 
 }
 
 #messages{ 
