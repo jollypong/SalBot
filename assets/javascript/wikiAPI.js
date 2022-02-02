@@ -5,7 +5,7 @@ async function searchUp(textblock) {
     let ids = "";
     let links = [];
     let results = [];
-    $( "#output" ).dialog( "open" );
+    $("#output").dialog( "open" );
     const value = await generateSearchTerm(textblock);
 
     fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srsearch=${value}`)
@@ -53,7 +53,6 @@ $("#chatBtn").on("click", async function () {
             let textContent = $(this).text();
             console.log(textContent);
             searchUp(textContent);
-      
         })
 })
 
