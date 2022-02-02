@@ -1,3 +1,5 @@
+let idCounter = 0;
+
 //conversation prompt. This will always be the same
 let prompt = `Salbot is your tutor. He has knowledge of javascript, html, css and can answer your questions in a clear and concise manner.` +
     `\nThe following is a conversation between you and Salbot. The conversation will follow the following format` +
@@ -30,7 +32,8 @@ let requestChatResponse = (prompt, conversationHistory) => {
         .then(response => response.json())
         .then(aiResponse => {
             console.log(aiResponse);
-            $('#messages').append(`<div class="salbotChatContent">${aiResponse.completions[0].data.text}</div>`);
+            $('#messages').append(`<div id="string_${idCounter}" class="salbotChatContent">${aiResponse.completions[0].data.text}</div>`);
+            idCounter++;
             conversationHistory[conversationHistory.length -1] += ` ${aiResponse.completions[0].data.text}"`;
             
         })
@@ -39,13 +42,12 @@ let requestChatResponse = (prompt, conversationHistory) => {
 $('#chatBtn').on('click', () => {
     let chatInput = $('#chatinput > button').val();
     conversationHistory.push(`\nYou: "${$('#chatInput').val()}"`);
-    $('#messages').append(`<div class="userChatContent">${conversationHistory[conversationHistory.length -1]}</div>`);
+    $('#messages').append(`<div id="string_${idCounter}" class="userChatContent">${conversationHistory[conversationHistory.length -1]}</div>`);
+    idCounter++;
     $('#chatInput').val('');
     conversationHistory.push(`\nSalbot: "`);
     console.log(conversationHistory);
     requestChatResponse(prompt, conversationHistory);
-
-
 });
 
 let initSalbot = () => {
@@ -53,9 +55,11 @@ let initSalbot = () => {
         // if index char  is s or S
         if(conversationHistory[index].charAt(1) === 's' || conversationHistory[index].charAt(1) === 'S') {
          
-            $('#messages').append(`<div class="salbotChatContent">${conversationHistory[index]}</div>`);
+            $('#messages').append(`<div id="string_${idCounter}" class="salbotChatContent">${conversationHistory[index]}</div>`);
+            idCounter++;
         } else {
-            $('#messages').append(`<div class="userChatContent">${conversationHistory[index]}</div>`);
+            $('#messages').append(`<div id="string_${idCounter}" class="userChatContent">${conversationHistory[index]}</div>`);
+            idCounter++;
         }
     }
 }
