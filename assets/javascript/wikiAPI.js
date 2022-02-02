@@ -8,6 +8,8 @@ async function searchUp(textblock) {
     // $("#output").dialog( "open" );
     // $("#myModal").modal();
     const value = await generateSearchTerm(textblock);
+    console.log(value);
+
 
     fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srsearch=${value}`)
         .then(function (response) {
@@ -26,7 +28,6 @@ async function searchUp(textblock) {
                 .then(function (idresult) {
                     return idresult.json();
                 }).then(function (idresult) {
-                    console.log(idresult.query.pages);
                     for (i in idresult.query.pages) {
                         links.push(idresult.query.pages[i].fullurl)
                     }
@@ -42,7 +43,6 @@ async function searchUp(textblock) {
 }
 
 
-console.log($("#messages").children("div"));
 
 //  $( "#output" ).dialog({ autoOpen: true});
 
@@ -50,7 +50,7 @@ $("#chatBtn").on("click", async function () {
     await new Promise((resolve) =>
         setTimeout(resolve, 2000))
         $("#messages").children().on("click", function () {
-            let textContent = $(this).text();
+            let textContent = $(this).text().slice(1);
             searchUp(textContent);
             
         })
