@@ -1,7 +1,8 @@
 let generateSearchTerm = async (textBlock) => {
-    let promptExample = `\ntextBlock: Salbot: "javascript is an important tool for developers."\n The tech term for this sentence other then \n is: javascript` +
-        `\ntextBlock: Salbot: "an api is a use to pull information from a website."\n The tech term for this sentence other then \n is: api` +
-        `\ntextBlock: Salbot: "a website is a place where you can store information."\n The tech term for this sentence other then \n is: website`;
+    console.log(textBlock);
+    let promptExample = `\ntextBlock: Salbot: "javascript is an important tool for developers."... The tech term for this sentence is: javascript` +
+        `\ntextBlock: Salbot: "an api is a use to pull information from a website."... The tech term for this sentence is: api` +
+        `\ntextBlock: Salbot: "a website is a place where you can store information."... The tech term for this sentence is: website`;
     //after v1/ add j1-large or j1-jumbo. jumbo is more accurate and should be used for presentation
     const response = await fetch("https://api.ai21.com/studio/v1/j1-large/complete", {
         headers: {
@@ -9,7 +10,7 @@ let generateSearchTerm = async (textBlock) => {
             'Authorization': 'Bearer Bu8F3MpNFHWo3rug7xDI8laDnR7CjGzT'
         },
         body: JSON.stringify({
-            prompt: promptExample + `\ntextBlock: ${textBlock} \nsearchTerm: `,
+            prompt: promptExample + `\ntextBlock: ${textBlock}... The tech term for this sentence is : `,
             numResults: 1,
             maxTokens: 1,
             topKReturn: 1,
@@ -18,11 +19,6 @@ let generateSearchTerm = async (textBlock) => {
         method: 'POST'
     })
     const searchterm = await response.json();
-    return searchterm
+    console.log(searchterm);
+    return searchterm.completions[0].data.text.slice(1);
 }
-//example code remove after wikipedia api is up
-let wikiapi = async () => {
-    const result = await generateSearchTerm(`Salbot: "javascript html css function class object array variable"`);
-    console.log(result);
-}
-wikiapi();
