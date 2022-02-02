@@ -8,9 +8,8 @@ let prompt = `Salbot is your tutor. He has knowledge of javascript, html, css an
     `\nSalbot: "We can start if youre ready"` +
     `\nYou: "Yes I am ready"`;
 
-let conversationHistory = localStorage.getItem('conversationHistory') ||
+let conversationHistory = JSON.parse(localStorage.getItem('conversationHistory')) ||
     [`\nSalbot: "Hey, I heard you were struggling with javascript in class today. Did you have any questions?"`];
-
 
 //after v1/ add j1-large or j1-jumbo. jumbo is more accurate and should be used for presentation
 let requestChatResponse = (prompt, conversationHistory) => {
@@ -31,9 +30,9 @@ let requestChatResponse = (prompt, conversationHistory) => {
     })
         .then(response => response.json())
         .then(aiResponse => {
-            $('#messages').append(`<div id="string_${idCounter}" class="salbotChatContent">${aiResponse.completions[0].data.text}</div>`);
-            idCounter++;
+            $('#messages').append(`<div class="salbotChatContent">${aiResponse.completions[0].data.text}</div>`);
             conversationHistory[conversationHistory.length - 1] += ` ${aiResponse.completions[0].data.text}"`;
+            localStorage.setItem('conversationHistory', JSON.stringify(conversationHistory));
 
         })
 }
@@ -41,11 +40,14 @@ let requestChatResponse = (prompt, conversationHistory) => {
 $('#chatBtn').on('click', () => {
     let chatInput = $('#chatinput > button').val();
     conversationHistory.push(`\nYou: "${$('#chatInput').val()}"`);
-    $('#messages').append(`<div id="string_${idCounter}" class="userChatContent">${conversationHistory[conversationHistory.length - 1]}</div>`);
-    idCounter++;
+    $('#messages').append(`<div class="userChatContent">${conversationHistory[conversationHistory.length - 1]}</div>`);
     $('#chatInput').val('');
     conversationHistory.push(`\nSalbot: "`);
     requestChatResponse(prompt, conversationHistory);
+    localStorage.setItem('conversationHistory', JSON.stringify(conversationHistory));
+
+    //for testing
+    console.log(conversationHistory);
 });
 
 let initSalbot = () => {
@@ -53,11 +55,9 @@ let initSalbot = () => {
         // if index char  is s or S
         if (conversationHistory[index].charAt(1) === 's' || conversationHistory[index].charAt(1) === 'S') {
 
-            $('#messages').append(`<div id="string_${idCounter}" class="salbotChatContent">${conversationHistory[index]}</div>`);
-            idCounter++;
+            $('#messages').append(`<div  class="salbotChatContent">${conversationHistory[index]}</div>`);
         } else {
-            $('#messages').append(`<div id="string_${idCounter}" class="userChatContent">${conversationHistory[index]}</div>`);
-            idCounter++;
+            $('#messages').append(`<div  class="userChatContent">${conversationHistory[index]}</div>`);
         }
     }
 }
