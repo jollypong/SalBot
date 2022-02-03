@@ -33,6 +33,7 @@ let requestChatResponse = (prompt, conversationHistory) => {
             $('#messages').append(`<div class="salbotChatContent">${aiResponse.completions[0].data.text}</div>`);
             conversationHistory[conversationHistory.length - 1] += ` ${aiResponse.completions[0].data.text}"`;
             localStorage.setItem('conversationHistory', JSON.stringify(conversationHistory));
+            $('#message-container').scrollTop($('#message-container').height());
 
         })
 }
@@ -43,11 +44,21 @@ $('#chatBtn').on('click', (e) => {
     let chatInput = $('#chatinput > button').val();
     conversationHistory.push(`\nYou: "${$('#chatInput').val()}"`);
     $('#messages').append(`<div class="userChatContent">${conversationHistory[conversationHistory.length - 1]}</div>`);
+    $('#message-container').scrollTop($('#message-container').height());
     $('#chatInput').val('');
     conversationHistory.push(`\nSalbot: "`);
     requestChatResponse(prompt, conversationHistory);
     localStorage.setItem('conversationHistory', JSON.stringify(conversationHistory));
 });
+
+
+//clear Button event listener 
+$("#clearButton").on("click", function () {
+    localStorage.clear();
+    location.reload();
+});
+
+
 
 let initSalbot = () => {
     for (let index in conversationHistory) {
@@ -59,6 +70,7 @@ let initSalbot = () => {
             $('#messages').append(`<div  class="userChatContent">${conversationHistory[index]}</div>`);
         }
     }
+    $('#message-container').scrollTop($('#message-container').height());
 }
 initSalbot();
 
