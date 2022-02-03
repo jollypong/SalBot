@@ -1,3 +1,5 @@
+let idCounter = 0;
+
 //conversation prompt. This will always be the same
 let prompt = `Salbot is your tutor. He has knowledge of javascript, html, css and can answer your questions in a clear and concise manner.` +
     `\nThe following is a conversation between you and Salbot. The conversation will follow the following format` +
@@ -6,11 +8,10 @@ let prompt = `Salbot is your tutor. He has knowledge of javascript, html, css an
     `\nSalbot: "We can start if youre ready"` +
     `\nYou: "Yes I am ready"`;
 
-let conversationHistory = localStorage.getItem('conversationHistory') || 
+let conversationHistory = JSON.parse(localStorage.getItem('conversationHistory')) ||
     [`\nSalbot: "Hey, I heard you were struggling with javascript in class today. Did you have any questions?"`];
 
-
-
+//after v1/ add j1-large or j1-jumbo. jumbo is more accurate and should be used for presentation
 let requestChatResponse = (prompt, conversationHistory) => {
     fetch("https://api.ai21.com/studio/v1/j1-large/complete", {
         headers: {
@@ -29,35 +30,47 @@ let requestChatResponse = (prompt, conversationHistory) => {
     })
         .then(response => response.json())
         .then(aiResponse => {
-            console.log(aiResponse);
             $('#messages').append(`<div class="salbotChatContent">${aiResponse.completions[0].data.text}</div>`);
-            conversationHistory[conversationHistory.length -1] += ` ${aiResponse.completions[0].data.text}"`;
-            
+            conversationHistory[conversationHistory.length - 1] += ` ${aiResponse.completions[0].data.text}"`;
+            localStorage.setItem('conversationHistory', JSON.stringify(conversationHistory));
+            $('#message-container').scrollTop($('#message-container').height());
+
         })
 }
 
-$('#chatBtn').on('click', () => {
+$('#chatBtn').on('click', (e) => {
+    e.preventDefault();
+    console.log('test')
     let chatInput = $('#chatinput > button').val();
     conversationHistory.push(`\nYou: "${$('#chatInput').val()}"`);
-    $('#messages').append(`<div class="userChatContent">${conversationHistory[conversationHistory.length -1]}</div>`);
+    $('#messages').append(`<div class="userChatContent">${conversationHistory[conversationHistory.length - 1]}</div>`);
+    $('#message-container').scrollTop($('#message-container').height());
     $('#chatInput').val('');
     conversationHistory.push(`\nSalbot: "`);
-    console.log(conversationHistory);
     requestChatResponse(prompt, conversationHistory);
-
-
+    localStorage.setItem('conversationHistory', JSON.stringify(conversationHistory));
 });
 
+
+//clear Button event listener 
+$("#clearButton").on("click", function () {
+    localStorage.clear();
+    location.reload();
+});
+
+
+
 let initSalbot = () => {
-    for(let index in conversationHistory) {
+    for (let index in conversationHistory) {
         // if index char  is s or S
-        if(conversationHistory[index].charAt(1) === 's' || conversationHistory[index].charAt(1) === 'S') {
-         
-            $('#messages').append(`<div class="salbotChatContent">${conversationHistory[index]}</div>`);
+        if (conversationHistory[index].charAt(1) === 's' || conversationHistory[index].charAt(1) === 'S') {
+
+            $('#messages').append(`<div  class="salbotChatContent">${conversationHistory[index]}</div>`);
         } else {
-            $('#messages').append(`<div class="userChatContent">${conversationHistory[index]}</div>`);
+            $('#messages').append(`<div  class="userChatContent">${conversationHistory[index]}</div>`);
         }
     }
+    $('#message-container').scrollTop($('#message-container').height());
 }
 initSalbot();
 
