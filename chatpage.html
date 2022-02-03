@@ -16,7 +16,7 @@
     <section id="Container">
         <!-- chatbox -->
         <div id="chatBox" class="card">
-            <!-- Salbot profile up top of chatbox-->
+            <!-- #region Salbot profile up top of chatbox-->
             <div id="salbot">
                 <img id="salbotIcon" class="card-header" src="assets/images/salbot white bg.png" alt="Salbot mascot" />
                 <div id="salbotInfo" class="column">
@@ -24,14 +24,16 @@
                     <p>online</p>
                 </div>
                 <div>
-                    <!--Modal Section for Wikipedia-->
+                    <!-- #endregion -->
+                    <!-- #region Modal Section for Wikipedia-->
                     <input id="input" for="searchButton" placeholder="Wikipedia Search!" />
                     <button type="button" id="searchButton" class="button is-danger is-small">
                         <i class="fas fa-search"></i>
                     </button>
+                    <!-- #endregion -->
                 </div>
             </div>
-            <!-- Main chat section-->
+            <!-- #region Main chat section-->
             <div id="message-container" class="card-content">
                 <!-- Empty Div for messages -->
                 <div id="messages">
@@ -40,7 +42,8 @@
 
 
             </div>
-            <!--input field section-->
+            <!-- #endregion -->
+            <!-- #region input field section-->
             <div class="form-container">
                 <button id="clearButton" class="button is-danger button is-medium">
                     <i class="fas fa-times"></i>
@@ -53,12 +56,11 @@
                     </button>
                 </form>
             </div>
-
-
-            </div>
+            <!-- #endregion -->
+        </div>
         </div>
     </section>
-    <!-- Modal for Wikipedia API -->
+    <!-- #region Modal for Wikipedia API -->
     <div class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -76,7 +78,8 @@
             </footer>
         </div>
     </div>
-
+    <!-- #endregion -->
+    <!-- #region scripts -->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -84,6 +87,7 @@
         crossorigin="anonymous"></script>
     <script src="./assets/javascript/salbotapi.js"></script>
     <script src="./assets/javascript/wikiAPI.js"></script>
+    <!-- #endregion -->
 </body>
 
 </html>

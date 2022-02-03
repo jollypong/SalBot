@@ -1,3 +1,4 @@
+/* #region global selectors */
 *{ 
     margin: 0; 
     padding: 0; 
@@ -24,7 +25,8 @@ body {
     min-height: 100vh; 
     background-color: var(--bluegray);
 }
-/* chat box style */
+/* #endregion */
+/* #region chat box style */
 #Container { 
     display: flex; 
     justify-content: center; 
@@ -41,8 +43,8 @@ body {
     display:flex;
     flex-direction: column;
 }
-
-/* About Salbot */
+/* #endregion */
+/* #region About Salbot */
 #salbot{ 
     display: flex; 
     justify-content: start;
@@ -75,7 +77,8 @@ body {
     margin-left: -3px; 
     margin-top: 3px;
 }
-/*Wikipedia Search Button */
+/* #endregion */
+/* #region Wikipedia Search Button */
 #searchButton {
     border-radius : 0 20px 20px 0;
 }
@@ -85,8 +88,8 @@ body {
     border-radius: 20px 0 0 20px;
     text-indent: 20px; 
 }
-
-/*Message Container within chat box*/
+/* #endregion */
+/* #region Message Container within chat box*/
 #message-container{ 
 
     overflow-y: auto;
@@ -96,7 +99,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
-
 .salbotChatContent{ 
     width: 60%; 
     word-wrap: break-word; 
@@ -121,7 +123,8 @@ body {
     padding: 15px; 
     align-items:center;
 }
-/* Chat input for messages */
+/* #endregion */
+/* #region Chat input for messages */
 #chatInputContainer{ 
     display: flex; 
     align-items: center; 
@@ -177,8 +180,8 @@ body {
     transform: scale(0.50); 
     transition-duration: 200ms; 
 }
-
-/*Modal Style*/
+/* #endregion */
+/* #region Modal Style*/
 .modal-card, 
 .modal-content{ 
     margin: 0 20px; 
@@ -194,3 +197,4 @@ body {
         width: auto;
     }
 }
+/* #endregion */

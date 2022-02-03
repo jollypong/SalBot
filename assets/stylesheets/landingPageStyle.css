@@ -1,38 +1,51 @@
-/* Universal Selector = Throughout the entire page */
-*{
+/* #region global selectors */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-:root{
+:root {
     --babyblue: #E7F2F8;
     --aquamarine: #74BDCB;
     --salmon: #ffa384;
     --freesia: #EFE7BC;
     --light: #fff;
-    --dark:#800080;  
+    --dark: #800080;
     --online: #FF8882;
     --navy: #000080;
 }
 
-body{
+body {
     background-color: var(--salmon);
     height: 100%;
     width: auto;
 }
 
+/* #endregion */
+/* #region header */
 header {
     margin-left: -10px !important;
 }
 
+
+
+.btn {
+    margin: 10px 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 10rem;
+}
+/* #endregion */
+/* #region main */
 .card {
     background-color: var(--salmon);
     border: transparent;
 }
 
-.card-group img{
+.card-group img {
     height: 200px;
     width: 250px;
     background: transparent;
@@ -40,22 +53,13 @@ header {
 
 
 .img {
-    display:block;
+    display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50vw 50vh;
 }
-
-.btn{
-    margin: 10px 20px;
-    padding: 10px 20px;
-    font-size: 20px;
-    border-radius: 10px;
-    width: 10rem;
-}
-
-/* Media Queries */
-
+/* #endregion */
+/* #region media queries */
 @media only screen and (max-width:600px) {
 
     .card {
@@ -65,13 +69,13 @@ header {
         align-items: center;
     }
 
-    .card-group img{
+    .card-group img {
         height: 75%;
         width: 75%;
     }
-    
-    .btn{
-        width:95vw;
+
+    .btn {
+        width: 95vw;
     }
 
 }
@@ -84,18 +88,18 @@ header {
         justify-content: space-evenly;
         align-items: center;
     }
-    
-    .btn{
+
+    .btn {
         justify-content: space-around;
         text-align: center;
         align-content: center;
         width: 95vw;
     }
 
-    
+
 }
 
-@media screen and (max-width:1800px) {
+@media only screen and (max-width:1920px) {
 
     .card {
         background-color: var(--salmon);
@@ -103,8 +107,8 @@ header {
         justify-content: space-evenly;
         align-items: center;
     }
-    
-    .btn{
+
+    .btn {
         justify-content: space-around;
         text-align: center;
         align-content: center;
@@ -112,3 +116,4 @@ header {
     }
 
 }
+/* #endregion */
