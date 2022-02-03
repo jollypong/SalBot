@@ -10,7 +10,7 @@ async function searchUp(textblock) {
     fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srsearch=${value}`)
         .then(response => response.json())
         .then(function (result) {
-            for(let i in result.query.search){
+            for (let i in result.query.search) {
                 idsArray.push(result.query.search[i].pageid);
                 snippetsArray.push(result.query.search[i].snippet);
                 idsString += idsArray[i] + "|";
@@ -21,22 +21,37 @@ async function searchUp(textblock) {
             fetch(`https://en.wikipedia.org/w/api.php?action=query&prop=info&inprop=url&origin=*&format=json&pageids=${idsString}`)
                 .then(function (idresult) {
                     return idresult.json();
-                }).then( idresult => idresult )
+                }).then(idresult => idresult)
                 .then(function (g) {
                     let pages = g.query.pages;
                     document.getElementById("output").innerHTML = "";
                     for (let i = 0; i < idsArray.length; i++) {
                         document.getElementById("output").innerHTML +=
-                            `<a href=${pages[idsArray[i]].canonicalurl} target='_blank'>` + pages[idsArray[i]].title + "</a><br>" + snippetsArray[i] + "<br>";
-                            $(".modal").attr("aria-hidden", "true");
-                        $('.modal-backdrop').remove();
+                            `<a href=${pages[idsArray[i]].canonicalurl} target='_blank'>` + pages[idsArray[i]].title + "</a><br>" + snippetsArray[i] + "<br><br>";
+                        $(".modal").addClass("is-active");
                     }
                 })
         })
 }
 
+// Modal Functions
+$(document).ready(function () {
+    $("#searchButton").on("click", function () {
+        let value = $("#input").val();
+        searchUp(value);
+    });
 
-$("#searchButton").on("click", function () {
-    let value = $("#input").val();
-    searchUp(value);
-})
+    $("#closeBtn").click(function () {
+        $(".modal").removeClass("is-active");
+    });
+
+    $("#closetop").click(function () {
+        $(".modal").removeClass("is-active");
+    });
+});
+
+//clear Button event listener 
+$("#clearButton").on("click", function () {
+    localStorage.clear()
+    $("#messages") = ""
+});

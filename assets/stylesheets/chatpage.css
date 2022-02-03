@@ -51,7 +51,7 @@ body {
 }
 
 #salbotIcon{ 
-    width: 95px;
+    width: 80px;
     height: 80px; 
     border-radius: 50%;
     background-color: transparent;
@@ -73,17 +73,18 @@ body {
     margin-left: -3px; 
     margin-top: 3px;
 }
-
+/*Wikipedia Search Button */
 #searchButton {
     border-radius : 0 20px 20px 0;
 }
 
 #input {
-    height: 34px;
+    height: 30px;
     border-radius: 20px 0 0 20px;
     text-indent: 20px; 
 }
 
+/*Message Container within chat box*/
 #messages{ 
     overflow-y: auto;
     background-color: var(--light);
@@ -107,7 +108,7 @@ body {
     border-radius: 10px 10px 0 10px; 
     margin: 5px 0 5px auto; 
 }
-
+/* Chat input for messages */
 #chatInputContainer{ 
     display: flex; 
     align-items: center; 
@@ -148,6 +149,13 @@ body {
     cursor: pointer; 
     transition: 0.4s ease-in-out; 
 }
+#clearButton{ 
+    border-radius: 50px;  
+    width: 80px;  
+    height: 15px;
+    padding: 17px; 
+    float: right;
+}
 
 #chatBtn:hover{ 
     opacity: 0.8;
@@ -157,6 +165,12 @@ body {
 #sendButton:active { 
     transform: scale(0.50); 
     transition-duration: 200ms; 
+}
+
+/*Modal Style*/
+.modal-card, 
+.modal-content{ 
+    margin: 0 20px; 
 }
 
 @media screen and (max-width: 600px) {

@@ -47,9 +47,6 @@ $('#chatBtn').on('click', (e) => {
     conversationHistory.push(`\nSalbot: "`);
     requestChatResponse(prompt, conversationHistory);
     localStorage.setItem('conversationHistory', JSON.stringify(conversationHistory));
-
-    //for testing
-    console.log(conversationHistory);
 });
 
 let initSalbot = () => {
