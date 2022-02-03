@@ -34,16 +34,6 @@ async function searchUp(textblock) {
         })
 }
 
-// Wiki Search button tie to enter key;
-$("#input").submit(function (event) {
-    // if (event.keyCode === 13) {
-        event.preventDefault();
-        console.log("made it here!")
-        let value = $("#input").val();
-        searchUp(value);
-    // }
-});
-
 // Modal Functions
 $(document).ready(function () {
     $("#searchButton").on("click", function () {
