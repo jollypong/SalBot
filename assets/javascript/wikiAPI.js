@@ -1,55 +1,54 @@
-let buttonEl = document.querySelector("#search");
-let inputEl = document.querySelector("#input");
-
+//uses wiki api to pull search results from wikipedia
 async function searchUp(textblock) {
-    let ids = "";
-    let links = [];
-    let results = [];
-    $("#output").dialog( "open" );
-    const value = await generateSearchTerm(textblock);
-    console.log(value);
-
-
+    let idsArray = [];
+    let idsString = "";
+    let snippetsArray = [];
+    const value = textblock;
+    //#region  Fetch ids, snippets and titles
     fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srsearch=${value}`)
-        .then(function (response) {
-            return response.json();
-        }).then(function (result) {
-            results = result.query.search;
-            for (let i = 0; i < results.length; i++) {
-                if (results[i + 1] != null) {
-                    ids += results[i].pageid + "|";
-                } else {
-                    ids += results[i].pageid;
-                }
+        .then(response => response.json())
+        .then(function (result) {
+            for (let i in result.query.search) {
+                idsArray.push(result.query.search[i].pageid);
+                snippetsArray.push(result.query.search[i].snippet);
+                idsString += idsArray[i] + "|";
             }
-        }).then(function (a) {
-            fetch(`https://en.wikipedia.org/w/api.php?action=query&prop=info&inprop=url&origin=*&format=json&pageids=${ids}`)
+            idsString = idsString.substring(0, idsString.length - 1);
+        })
+        //#region fetch links and post to modal
+        .then(function (a) {
+            fetch(`https://en.wikipedia.org/w/api.php?action=query&prop=info&inprop=url&origin=*&format=json&pageids=${idsString}`)
                 .then(function (idresult) {
                     return idresult.json();
-                }).then(function (idresult) {
-                    for (i in idresult.query.pages) {
-                        links.push(idresult.query.pages[i].fullurl)
-                    }
-                }).then(function (g) {
+                }).then(idresult => idresult)
+                .then(function (g) {
+                    let pages = g.query.pages;
                     document.getElementById("output").innerHTML = "";
-                    for (let i = 0; i < results.length; i++) {
+                    for (let i = 0; i < idsArray.length; i++) {
                         document.getElementById("output").innerHTML +=
-                            "<a href=`" + links[i] + "` target='_blank'>" + results[i].title + "</a><br>" + results[i].snippet + "<br>";
+                            `<a href=${pages[idsArray[i]].canonicalurl} target='_blank'>` + pages[idsArray[i]].title + "</a><br>" + snippetsArray[i] + "<br><br>";
+                        $(".modal").addClass("is-active");
                     }
                 })
+            //#endregion
         })
+    //#endregion
 }
 
 
+// #region Modal Functions
+$(document).ready(function () {
+    $("#searchButton").on("click", function () {
+        let value = $("#input").val();
+        searchUp(value);
+    });
 
-$( "#output" ).dialog({ autoOpen: false });
+    $("#closeBtn").click(function () {
+        $(".modal").removeClass("is-active");
+    });
 
-$("#chatBtn").on("click", async function () {
-    await new Promise((resolve) =>
-        setTimeout(resolve, 2000))
-        $("#messages").children().on("click", function () {
-            let textContent = $(this).text().slice(1);
-            searchUp(textContent);
-        })
-})
-    
+    $("#closetop").click(function () {
+        $(".modal").removeClass("is-active");
+    });
+});
+// #endregion

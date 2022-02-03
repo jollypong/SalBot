@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
-        crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/stylesheets/chatpage.css" />
 
@@ -15,59 +13,81 @@
 </head>
 
 <body>
-    <section id="Container" class = "">
+    <section id="Container">
         <!-- chatbox -->
-        <div id = "chatBox" class ="card">
-            <!-- Salbot profile up top of chatbox-->
+        <div id="chatBox" class="card">
+            <!-- #region Salbot profile up top of chatbox-->
             <div id="salbot">
-                <img id= "salbotIcon" class = "card-header" src="assets/images/salbot white bg.png" alt = "Salbot mascot"/>
-                <div id= "salbotInfo" class = "column">
-                    <h2>Salbot</h2>
+                <img id="salbotIcon" class="card-header" src="assets/images/salbot white bg.png" alt="Salbot mascot" />
+                <div id="salbotInfo" class="column">
+                    <h2>SalBot</h2>
                     <p>online</p>
                 </div>
-            </div>     
-            <!-- Main chat section-->
-            <div id = "messages" class ="card-content">
-            <!-- Empty Div for messages -->
+                <div>
+                    <!-- #endregion -->
+                    <!-- #region Modal Section for Wikipedia-->
+                    <input id="input" for="searchButton" placeholder="Wikipedia Search!" />
+                    <button type="button" id="searchButton" class="button is-danger is-small">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <!-- #endregion -->
+                </div>
             </div>
-            <!--input field section-->
-            <div id = "chatInputContainer" class = "card-footer">
-                <input id = "chatInput" type="text" placeholder="Enter Message"/>
-                <button id = "chatBtn" class = "card-body">
-                    <i id = "sendButton" class = "fas fa-paper-plane"></i>
+            <!-- #region Main chat section-->
+            <div id="message-container" class="card-content">
+                <!-- Empty Div for messages -->
+                <div id="messages">
+
+                </div>
+
+
+            </div>
+            <!-- #endregion -->
+            <!-- #region input field section-->
+            <div class="form-container">
+                <button id="clearButton" class="button is-danger button is-medium">
+                    <i class="fas fa-times"></i>
                 </button>
-            <div>
+                <form id="chatInputContainer" class="">
+
+                    <input id="chatInput" type=text placeholder="Message!" />
+                    <button id="chatBtn" class="">
+                        <i id="sendButton" class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+            <!-- #endregion -->
+        </div>
         </div>
     </section>
-
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="false">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body" id="output">
-                <!-- adding data here -->
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
+    <!-- #region Modal for Wikipedia API -->
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Search Result:</p>
+                <button class="delete" id="closetop" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="content" id="output">
+                    <!-- wiki results -->
+                    <div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-danger" id="closeBtn">Close</button>
+            </footer>
         </div>
     </div>
-    
+    <!-- #endregion -->
+    <!-- #region scripts -->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
     <script src="./assets/javascript/salbotapi.js"></script>
     <script src="./assets/javascript/wikiAPI.js"></script>
+    <!-- #endregion -->
 </body>
+
 </html>
