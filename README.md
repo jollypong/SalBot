@@ -38,7 +38,7 @@ The following images is the sceenshot of web application's appearance and functi
 
 ## Link
 
-Click [here](https://jotaroc.github.io/Weather-Dashboard/) to the deployed website
+Click [here](https://jollypong.github.io/SalBot/) to the deployed website
 
 
 ## Contributor
