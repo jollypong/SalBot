@@ -1,12 +1,10 @@
-let buttonEl = document.querySelector("#search");
-let inputEl = document.querySelector("#input");
-
+//uses wiki api to pull search results from wikipedia
 async function searchUp(textblock) {
     let idsArray = [];
     let idsString = "";
     let snippetsArray = [];
     const value = textblock;
-
+    //#region  Fetch ids, snippets and titles
     fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srsearch=${value}`)
         .then(response => response.json())
         .then(function (result) {
@@ -17,6 +15,7 @@ async function searchUp(textblock) {
             }
             idsString = idsString.substring(0, idsString.length - 1);
         })
+        //#region fetch links and post to modal
         .then(function (a) {
             fetch(`https://en.wikipedia.org/w/api.php?action=query&prop=info&inprop=url&origin=*&format=json&pageids=${idsString}`)
                 .then(function (idresult) {
@@ -31,10 +30,13 @@ async function searchUp(textblock) {
                         $(".modal").addClass("is-active");
                     }
                 })
+            //#endregion
         })
+    //#endregion
 }
 
-// Modal Functions
+
+// #region Modal Functions
 $(document).ready(function () {
     $("#searchButton").on("click", function () {
         let value = $("#input").val();
@@ -49,3 +51,4 @@ $(document).ready(function () {
         $(".modal").removeClass("is-active");
     });
 });
+// #endregion
