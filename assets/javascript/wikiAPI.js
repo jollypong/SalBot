@@ -49,5 +49,3 @@ $("#searchButton").on("click", function(){
     let value = $("#input").val();
     searchUp(value);
 })
-
-
