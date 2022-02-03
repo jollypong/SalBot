@@ -154,6 +154,7 @@ body {
     width: 80px;  
     height: 15px;
     padding: 17px; 
+    float: right;
 }
 
 #chatBtn:hover{ 
