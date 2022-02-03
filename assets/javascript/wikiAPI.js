@@ -39,13 +39,19 @@ async function searchUp(textblock) {
                 })
         })
 }
+// Wiki Search button tie to enter key;
+$("#input").keyup(function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        $("searchButton").click();
+    }
+});
 
 // Modal Functions
 $(document).ready(function(){
     $("#searchButton").on("click", function(){
         let value = $("#input").val();
         searchUp(value);
-        // $(".modal").addClass("is-active");  
     });
 
     $("#closeBtn").click(function() {
@@ -57,4 +63,8 @@ $(document).ready(function(){
     });
 });
 
-document.querySelector("#clearButton").on("click", localStorage.clear());
+//clear Button event listener 
+$("#clearButton").on("click", function(){ 
+    localStorage.clear()
+    $("#messages") = ""
+}); 
