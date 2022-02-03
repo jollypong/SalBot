@@ -38,6 +38,8 @@ body {
     border-radius: 10px; 
     position: relative; 
     margin: 5px; 
+    display:flex;
+    flex-direction: column;
 }
 
 /* About Salbot */
@@ -85,10 +87,14 @@ body {
 }
 
 /*Message Container within chat box*/
-#messages{ 
+#message-container{ 
+
     overflow-y: auto;
     background-color: var(--light);
     height: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .salbotChatContent{ 
@@ -108,17 +114,22 @@ body {
     border-radius: 10px 10px 0 10px; 
     margin: 5px 0 5px auto; 
 }
+
+.form-container {
+    display:flex;
+    background-color: var(--freesia);
+    padding: 15px; 
+    align-items:center;
+}
 /* Chat input for messages */
 #chatInputContainer{ 
     display: flex; 
     align-items: center; 
-    width: 100%;
-    height: 65px; 
-    padding: 15px; 
+    width: 90%;
+    height: 100%; 
     overflow: hidden; 
-    position: absolute; 
+    position: relative; 
     bottom: 0; 
-    background-color: var(--freesia);
 }
 
 #chatInputContainer input{ 

@@ -23,28 +23,40 @@
                     <h2>Salbot</h2>
                     <p>online</p>
                 </div>
-                <form>
+                <div>
                     <!--Modal Section for Wikipedia-->
-                    <input id="input" for="searchButton" placeholder="Wikipedia Search!"/>
+                    <input id="input" for="searchButton" placeholder="Wikipedia Search!" />
                     <button type="button" id="searchButton" class="button is-danger is-small">
                         <i class="fas fa-search"></i>
                     </button>
-                </form>
+                </div>
             </div>
             <!-- Main chat section-->
-            <div id="messages" class="card-content">
-                <button id="clearButton" class="card-body button is-danger button is-medium">
-                    <i class="fas fa-times"></i>
-                </button>
+            <div id="message-container" class="card-content">
                 <!-- Empty Div for messages -->
+                <div id="messages">
+
+                </div>
+
+
             </div>
             <!--input field section-->
-            <form id="chatInputContainer" class="card-footer">
-                <input id="chatInput" type=text placeholder="Enter Message" />
-                <button id="chatBtn" class="card-body">
-                    <i id="sendButton" class="fas fa-paper-plane"></i>
+            <div class="form-container">
+                <button id="clearButton" class="button is-danger button is-medium">
+                    <i class="fas fa-times"></i>
                 </button>
-            </form>
+                <form id="chatInputContainer" class="">
+
+                    <input id="chatInput" type=text placeholder="Enter Message" />
+                    <button id="chatBtn" class="">
+                        <i id="sendButton" class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+
+            </div>
+        </div>
     </section>
     <!-- Modal for Wikipedia API -->
     <div class="modal">
@@ -55,12 +67,12 @@
                 <button class="delete" id="closetop" aria-label="close"></button>
             </header>
             <section class="modal-card-body">
-                <div class="content" id ="output">
+                <div class="content" id="output">
                     <!-- wiki results -->
-                <div> 
+                    <div>
             </section>
             <footer class="modal-card-foot">
-            <button class="button is-danger" id="closeBtn">Close</button>
+                <button class="button is-danger" id="closeBtn">Close</button>
             </footer>
         </div>
     </div>

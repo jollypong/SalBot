@@ -49,9 +49,3 @@ $(document).ready(function () {
         $(".modal").removeClass("is-active");
     });
 });
-
-//clear Button event listener 
-$("#clearButton").on("click", function () {
-    localStorage.clear()
-    $("#messages") = ""
-});
