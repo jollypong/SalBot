@@ -49,7 +49,7 @@ body {
     align-items: center; 
     height: 100px; 
     background-color: var(--aquamarine); 
-    padding: 0 15px 0 15px; 
+    padding: 15px; 
 }
 
 #salbotIcon{ 
@@ -109,7 +109,7 @@ body {
 .userChatContent{ 
     width: 60%;
     word-wrap: break-word; 
-    background-color: var(--aquamarine);
+    background-color: var(--bluegray);
     padding: 7px 10px; 
     border-radius: 10px 10px 0 10px; 
     margin: 5px 0 5px auto; 
@@ -120,6 +120,7 @@ body {
     background-color: var(--freesia);
     padding: 15px; 
     align-items:center;
+    justify-content: space-evenly;
 }
 /* Chat input for messages */
 #chatInputContainer{ 
@@ -147,15 +148,14 @@ body {
     width: 100px;
     border-radius: 50px;
     background-color: var(--salmon);
-    padding: 5px;
-    margin: 5px; 
+    padding: 10px; 
+    margin-left: 10px; 
 }
 
 #sendButton { 
     width: 30px;
-    height: 25px; 
+    height: 30px; 
     background-color: transparent;
-    overflow: hidden;
     position: relative; 
     cursor: pointer; 
     transition: 0.4s ease-in-out; 
@@ -163,9 +163,10 @@ body {
 #clearButton{ 
     border-radius: 50px;  
     width: 80px;  
-    height: 15px;
-    padding: 17px; 
+    height: 20px;
+    padding: 23px; 
     float: right;
+    margin-right: 10px; 
 }
 
 #chatBtn:hover{ 
