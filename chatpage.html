@@ -16,37 +16,51 @@
     <section id="Container">
         <!-- chatbox -->
         <div id="chatBox" class="card">
-            <!-- Salbot profile up top of chatbox-->
+            <!-- #region Salbot profile up top of chatbox-->
             <div id="salbot">
                 <img id="salbotIcon" class="card-header" src="assets/images/salbot white bg.png" alt="Salbot mascot" />
                 <div id="salbotInfo" class="column">
-                    <h2>Salbot</h2>
+                    <h2>SalBot</h2>
                     <p>online</p>
                 </div>
-                <form>
-                    <!--Modal Section for Wikipedia-->
-                    <input id="input" for="searchButton" placeholder="Wikipedia Search!"/>
+                <div>
+                    <!-- #endregion -->
+                    <!-- #region Modal Section for Wikipedia-->
+                    <input id="input" for="searchButton" placeholder="Wikipedia Search!" />
                     <button type="button" id="searchButton" class="button is-danger is-small">
                         <i class="fas fa-search"></i>
                     </button>
-                </form>
+                    <!-- #endregion -->
+                </div>
             </div>
-            <!-- Main chat section-->
-            <div id="messages" class="card-content">
-                <button id="clearButton" class="card-body button is-danger button is-medium">
+            <!-- #region Main chat section-->
+            <div id="message-container" class="card-content">
+                <!-- Empty Div for messages -->
+                <div id="messages">
+
+                </div>
+
+
+            </div>
+            <!-- #endregion -->
+            <!-- #region input field section-->
+            <div class="form-container">
+                <button id="clearButton" class="button is-danger button is-medium">
                     <i class="fas fa-times"></i>
                 </button>
-                <!-- Empty Div for messages -->
+                <form id="chatInputContainer" class="">
+
+                    <input id="chatInput" type=text placeholder="Message!" />
+                    <button id="chatBtn" class="">
+                        <i id="sendButton" class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
             </div>
-            <!--input field section-->
-            <form id="chatInputContainer" class="card-footer">
-                <input id="chatInput" type=text placeholder="Enter Message" />
-                <button id="chatBtn" class="card-body">
-                    <i id="sendButton" class="fas fa-paper-plane"></i>
-                </button>
-            </form>
+            <!-- #endregion -->
+        </div>
+        </div>
     </section>
-    <!-- Modal for Wikipedia API -->
+    <!-- #region Modal for Wikipedia API -->
     <div class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -55,16 +69,17 @@
                 <button class="delete" id="closetop" aria-label="close"></button>
             </header>
             <section class="modal-card-body">
-                <div class="content" id ="output">
+                <div class="content" id="output">
                     <!-- wiki results -->
-                <div> 
+                    <div>
             </section>
             <footer class="modal-card-foot">
-            <button class="button is-danger" id="closeBtn">Close</button>
+                <button class="button is-danger" id="closeBtn">Close</button>
             </footer>
         </div>
     </div>
-
+    <!-- #endregion -->
+    <!-- #region scripts -->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -72,6 +87,7 @@
         crossorigin="anonymous"></script>
     <script src="./assets/javascript/salbotapi.js"></script>
     <script src="./assets/javascript/wikiAPI.js"></script>
+    <!-- #endregion -->
 </body>
 
 </html>

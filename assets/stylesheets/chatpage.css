@@ -1,3 +1,4 @@
+/* #region global selectors */
 *{ 
     margin: 0; 
     padding: 0; 
@@ -24,30 +25,34 @@ body {
     min-height: 100vh; 
     background-color: var(--bluegray);
 }
-/* chat box style */
+/* #endregion */
+/* #region chat box style */
 #Container { 
     display: flex; 
     justify-content: center; 
-    align-items: center; 
+    align-items: center;
+    width: 50%; 
 }
 
 #chatBox{ 
-    width: auto;
+    width: 100%;
     height: 95vh; 
     overflow: hidden; 
     border-radius: 10px; 
     position: relative; 
     margin: 5px; 
+    display:flex;
+    flex-direction: column;
 }
-
-/* About Salbot */
+/* #endregion */
+/* #region About Salbot */
 #salbot{ 
     display: flex; 
     justify-content: start;
     align-items: center; 
     height: 100px; 
     background-color: var(--aquamarine); 
-    padding: 0 15px 0 15px; 
+    padding: 15px; 
 }
 
 #salbotIcon{ 
@@ -73,7 +78,8 @@ body {
     margin-left: -3px; 
     margin-top: 3px;
 }
-/*Wikipedia Search Button */
+/* #endregion */
+/* #region Wikipedia Search Button */
 #searchButton {
     border-radius : 0 20px 20px 0;
 }
@@ -83,14 +89,17 @@ body {
     border-radius: 20px 0 0 20px;
     text-indent: 20px; 
 }
+/* #endregion */
+/* #region Message Container within chat box*/
+#message-container{ 
 
-/*Message Container within chat box*/
-#messages{ 
     overflow-y: auto;
     background-color: var(--light);
     height: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
 .salbotChatContent{ 
     width: 60%; 
     word-wrap: break-word; 
@@ -103,22 +112,29 @@ body {
 .userChatContent{ 
     width: 60%;
     word-wrap: break-word; 
-    background-color: var(--aquamarine);
+    background-color: var(--bluegray);
     padding: 7px 10px; 
     border-radius: 10px 10px 0 10px; 
     margin: 5px 0 5px auto; 
 }
-/* Chat input for messages */
+
+.form-container {
+    display:flex;
+    background-color: var(--freesia);
+    padding: 15px; 
+    align-items:center;
+    justify-content: space-evenly;
+}
+/* #endregion */
+/* #region Chat input for messages */
 #chatInputContainer{ 
     display: flex; 
     align-items: center; 
-    width: 100%;
-    height: 65px; 
-    padding: 15px; 
+    width: 90%;
+    height: 100%; 
     overflow: hidden; 
-    position: absolute; 
+    position: relative; 
     bottom: 0; 
-    background-color: var(--freesia);
 }
 
 #chatInputContainer input{ 
@@ -136,15 +152,14 @@ body {
     width: 100px;
     border-radius: 50px;
     background-color: var(--salmon);
-    padding: 5px;
-    margin: 5px; 
+    padding: 10px; 
+    margin-left: 10px; 
 }
 
 #sendButton { 
     width: 30px;
-    height: 25px; 
+    height: 30px; 
     background-color: transparent;
-    overflow: hidden;
     position: relative; 
     cursor: pointer; 
     transition: 0.4s ease-in-out; 
@@ -152,9 +167,10 @@ body {
 #clearButton{ 
     border-radius: 50px;  
     width: 80px;  
-    height: 15px;
-    padding: 17px; 
+    height: 20px;
+    padding: 23px; 
     float: right;
+    margin-right: 10px; 
 }
 
 #chatBtn:hover{ 
@@ -166,20 +182,23 @@ body {
     transform: scale(0.50); 
     transition-duration: 200ms; 
 }
-
-/*Modal Style*/
+/* #endregion */
+/* #region Modal Style*/
 .modal-card, 
 .modal-content{ 
     margin: 0 20px; 
 }
 
 @media screen and (max-width: 600px) {
-    body { 
-        min-height: 100%; 
-        height: 100%;
-        padding: 5px; 
-    };
-    #chatInputContainer{ 
-        width: auto;
+    #salbot{ 
+        flex-direction: column;
+        height: 300px;
+    }
+} 
+
+@media screen and (max-width: 1024px) {
+    #Container{ 
+        width: 90%;
     }
 }
+/* #endregion */
