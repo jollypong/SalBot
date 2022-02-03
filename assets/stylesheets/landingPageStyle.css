@@ -70,7 +70,7 @@ header {
     }
     
     .btn{
-        width:90vw;
+        width:95vw;
     }
 
 }
@@ -88,13 +88,25 @@ header {
         justify-content: space-around;
         text-align: center;
         align-content: center;
-        width: 98vw;
+        width: 95vw;
     }
 
 }
-/* 
-@media only screen and (max-width:1200px) {
 
+@media only screen and (max-width:1800px) {
 
+    .card {
+        background-color: var(--salmon);
+        border: transparent;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .btn{
+        justify-content: space-around;
+        text-align: center;
+        align-content: center;
+        width: 95vw;
+    }
 
-} */
+}
