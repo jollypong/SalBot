@@ -26,13 +26,13 @@ let requestChatResponse = (prompt, conversationHistory) => {
             maxTokens: 100,
             stopSequences: [`"`],
             topKReturn: 0,
-            temperature: 0.7
+            temperature: 0.5
         }),
         method: 'POST'
     })
         .then(response => response.json())
         .then(aiResponse => {
-            $('#messages').append(`<div class="salbotChatContent">${aiResponse.completions[0].data.text}</div>`);
+            $('#messages').append(`<div class="salbotChatContent">Salbot: "${aiResponse.completions[0].data.text.slice(0)}"</div>`);
             conversationHistory[conversationHistory.length - 1] += ` ${aiResponse.completions[0].data.text}"`;
             localStorage.setItem('conversationHistory', JSON.stringify(conversationHistory));
             $('#message-container').scrollTop($('#message-container').height());
@@ -72,8 +72,8 @@ let initSalbot = () => {
     for (let index in conversationHistory) {
         // if index char  is s or S
         if (conversationHistory[index].charAt(1) === 's' || conversationHistory[index].charAt(1) === 'S') {
-
-            $('#messages').append(`<div  class="salbotChatContent">${conversationHistory[index]}</div>`);
+            let response = conversationHistory[index].replace('Salbot: " ', 'Salbot: "');
+            $('#messages').append(`<div  class="salbotChatContent">${response}</div>`);
         } else {
             $('#messages').append(`<div  class="userChatContent">${conversationHistory[index]}</div>`);
         }
