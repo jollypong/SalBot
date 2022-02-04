@@ -18,7 +18,7 @@ let requestChatResponse = (prompt, conversationHistory) => {
     fetch("https://api.ai21.com/studio/v1/j1-jumbo/complete", {
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer Bu8F3MpNFHWo3rug7xDI8laDnR7CjGzT'
+            'Authorization': 'Bearer F0V9ndUSIlDJD5kCkgt1z0oIGjINkLSk'
         },
         body: JSON.stringify({
             prompt: prompt + conversationHistory,
