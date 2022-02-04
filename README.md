@@ -1,8 +1,9 @@
 # SalBot
 
-## User Story
+## Description
 
-As a Student, I work on project late into the night and I need to be able to ask questions when tutors are unavailable so that I can hand my assignments in on time. End user goal: To interact with ai21's language model and receive answers to my javascript questions in a clear concise manner. 
+The project creates a AI chatbot with landing page which will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code. It uses AI21 API to associate with AI library. SalBot is an AI tutor that can answer any questions, users just need to type in questions and Salbot will automatically reply. Besides, it uses MediaWiki API that allow users to search anything they want, the results will be displayed in a modal. 
+
 
 
 ## Technologies Used
