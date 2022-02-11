@@ -1,4 +1,5 @@
 # SalBot
+<img src="https://img.shields.io/badge/License-MIT License-blue">
 
 ## Description
 
